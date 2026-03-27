@@ -10,6 +10,11 @@ router.get("/", (req, res) => {
     res.send(frota);
 });
 
+router.get("/ativos", (req, res) => {
+    const veiculosAtivos = frota.filter(v => v.ativo === 1);
+    res.send(veiculosAtivos);
+});
+
 router.get("/:id", (req, res) => {
     const id = parseInt(req.params.id);
 
